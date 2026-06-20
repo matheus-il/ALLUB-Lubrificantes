@@ -7,31 +7,51 @@ interface AnimatedLogoProps {
 
 export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const dropRef = useRef<SVGSVGElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const dropElement = dropRef.current;
-    if (!containerRef.current || !dropElement) return;
+    if (!containerRef.current) return;
 
-    // Animação da gota de óleo (Efeito elástico de pingo)
-    const dropAnim = animate(dropElement, {
-      translateY: [-30, 0],
+    // Animação das setas verdes em loop (sentido horário)
+    const setasAnim = animate('#setas-verdes', {
+      rotate: '1turn',
+      duration: 8000,
+      easing: 'linear',
+      loop: true
+    });
+
+    // Animação da engrenagem azul em loop (sentido horário)
+    const engrenagemAnim = animate('#engrenagem-azul', {
+      rotate: '1turn',
+      duration: 12000,
+      easing: 'linear',
+      loop: true
+    });
+
+    // Animação realista da gota de óleo pingando em loop
+    const gotaAnim = animate('#gota-oleo', {
+      translateY: [0, 45],
       scaleY: [
-        { value: 1.5, duration: 150, easing: 'easeOutQuad' },
-        { value: 0.8, duration: 100, easing: 'easeInOutQuad' },
-        { value: 1.1, duration: 150, easing: 'easeInOutQuad' },
-        { value: 1, duration: 150, easing: 'easeInOutQuad' }
+        { value: 1, duration: 0 },
+        { value: 1.6, duration: 400, easing: 'easeInQuad' },
+        { value: 1.2, duration: 400, easing: 'easeOutQuad' },
+        { value: 0.1, duration: 200 }
       ],
       scaleX: [
-        { value: 0.6, duration: 150, easing: 'easeOutQuad' },
-        { value: 1.3, duration: 100, easing: 'easeInOutQuad' },
-        { value: 0.9, duration: 150, easing: 'easeInOutQuad' },
-        { value: 1, duration: 150, easing: 'easeInOutQuad' }
+        { value: 1, duration: 0 },
+        { value: 0.7, duration: 400, easing: 'easeInQuad' },
+        { value: 0.9, duration: 400, easing: 'easeOutQuad' },
+        { value: 0.1, duration: 200 }
       ],
-      opacity: [0, 1],
-      duration: 800,
-      easing: 'easeOutElastic(1, .6)'
+      opacity: [
+        { value: 0, duration: 0 },
+        { value: 1, duration: 150 },
+        { value: 1, duration: 650 },
+        { value: 0, duration: 200, easing: 'easeOutQuad' }
+      ],
+      duration: 2000,
+      easing: 'easeInQuad',
+      loop: true
     });
 
     // Animação das letras surgindo em efeito cascata
@@ -45,21 +65,23 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
     });
 
     return () => {
-      dropAnim.revert();
+      setasAnim.revert();
+      engrenagemAnim.revert();
+      gotaAnim.revert();
       textAnim.revert();
     };
   }, []);
 
   const handleHover = () => {
-    const dropElement = dropRef.current;
-    if (!dropElement) return;
-    // Mini-animação de pulso ao passar o mouse ou tocar
-    animate(dropElement, {
-      scale: [1, 1.25, 1],
-      rotate: '1turn',
-      duration: 800,
-      easing: 'easeInOutBack'
-    });
+    // Leve pulso na engrenagem quando passar o mouse
+    const engrenagem = document.querySelector('#engrenagem-azul');
+    if (engrenagem) {
+      animate(engrenagem, {
+        scale: [1, 1.15, 1],
+        duration: 500,
+        easing: 'easeInOutBack'
+      });
+    }
   };
 
   const isLarge = size === 'large';
@@ -69,6 +91,8 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
       ref={containerRef}
       onMouseEnter={handleHover}
       onTouchStart={handleHover}
+      className="notranslate"
+      translate="no"
       style={{
         display: 'flex',
         flexDirection: isLarge ? 'column' : 'row',
@@ -79,32 +103,81 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
         padding: isLarge ? '20px 0' : '4px 0',
       }}
     >
-      {/* SVG da Gota de Óleo / Lubrificante Premium */}
+      {/* SVG da Logo ALLUB Redesenhado e Animado */}
       <svg
-        ref={dropRef}
-        width={isLarge ? 64 : 32}
-        height={isLarge ? 64 : 32}
-        viewBox="0 0 100 100"
+        width={isLarge ? 120 : 60}
+        height={isLarge ? 120 : 60}
+        viewBox="0 0 200 200"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ filter: 'drop-shadow(0 0 8px var(--primary-glow))' }}
+        style={{ filter: 'drop-shadow(0 0 10px var(--primary-glow))' }}
       >
+        {/* GRUPO DAS SETAS VERDES */}
+        <g id="setas-verdes" style={{ transformOrigin: '100px 100px' }}>
+          {/* Seta Superior (Sentido Horário) */}
+          <path
+            d="M 35,100 A 65,65 0 0,1 155,60"
+            stroke="#74b22c"
+            strokeWidth="10"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path d="M 144,45 L 168,60 L 149,80 Z" fill="#74b22c" />
+
+          {/* Seta Inferior (Sentido Horário) */}
+          <path
+            d="M 165,100 A 65,65 0 0,1 45,140"
+            stroke="#74b22c"
+            strokeWidth="10"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <path d="M 56,155 L 32,140 L 51,120 Z" fill="#74b22c" />
+        </g>
+
+        {/* GRUPO DA ENGRENAGEM AZUL */}
+        <g id="engrenagem-azul" style={{ transformOrigin: '100px 100px' }}>
+          {/* Aro da engrenagem com centro oco/transparente */}
+          <circle cx="100" cy="100" r="40" stroke="#00315a" strokeWidth="14" fill="none" />
+          
+          {/* Dentes da engrenagem (12 dentes rotacionados) */}
+          {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
+            <rect
+              key={angle}
+              x="93"
+              y="40"
+              width="14"
+              height="14"
+              rx="2"
+              fill="#00315a"
+              transform={`rotate(${angle} 100 100)`}
+            />
+          ))}
+        </g>
+
+        {/* GRUPO DO GALÃO DE ÓLEO (Inclinado para a esquerda/derramando) */}
+        <g id="galao-preto" fill="#111" transform="translate(0, 5) rotate(-15 100 100)">
+          {/* Corpo principal do galão */}
+          <rect x="75" y="92" width="40" height="24" rx="4" />
+          
+          {/* Alça do galão */}
+          <path d="M 75,96 L 62,96 L 62,112 L 75,112 L 75,106 L 67,106 L 67,102 L 75,102 Z" />
+          
+          {/* Tampa do galão */}
+          <rect x="85" y="85" width="4" height="7" />
+          <rect x="81" y="82" width="12" height="3" rx="1" />
+          
+          {/* Bico longo do galão */}
+          <path d="M 115,96 L 138,91 C 143,90 148,94 148,99 L 143,105 C 140,102 135,101 115,101 Z" />
+        </g>
+
+        {/* GOTA DE ÓLEO PINGANDO (Independente para animação translateY) */}
         <path
-          d="M50 10C50 10 20 45 20 65C20 81.5685 33.4315 95 50 95C66.5685 95 80 81.5685 80 65C80 45 50 10 50 10Z"
-          fill="url(#paint0_linear)"
+          id="gota-oleo"
+          d="M 136,105 C 136,105 132,113 132,116 C 132,119 134,121 137,121 C 140,121 142,119 142,116 C 142,113 138,105 138,105 Z"
+          fill="#111"
+          style={{ transformOrigin: '137px 105px' }}
         />
-        {/* Reflexo de brilho premium dentro da gota */}
-        <path
-          d="M40 50C33 55 30 65 30 65C30 65 33 58 40 55C47 52 50 48 50 48C50 48 47 45 40 50Z"
-          fill="white"
-          opacity="0.3"
-        />
-        <defs>
-          <linearGradient id="paint0_linear" x1="50" y1="10" x2="50" y2="95" gradientUnits="userSpaceOnUse">
-            <stop stopColor="var(--primary)" />
-            <stop offset="1" stopColor="hsl(var(--primary-hue), 95%, 35%)" />
-          </linearGradient>
-        </defs>
       </svg>
 
       {/* Nome da Marca com letras divididas para animação */}
