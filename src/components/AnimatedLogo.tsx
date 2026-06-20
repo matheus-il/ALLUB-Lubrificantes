@@ -110,6 +110,8 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
       {/* Nome da Marca com letras divididas para animação */}
       <div
         ref={textRef}
+        className="notranslate"
+        translate="no"
         style={{
           display: 'flex',
           fontFamily: 'var(--font-heading)',
