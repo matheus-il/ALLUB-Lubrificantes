@@ -36,28 +36,26 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
       loop: true
     });
 
-    // Animação realista da gota de óleo pingando em loop
+    // Animação fluida e contínua da gota de óleo pingando (sem travadas no final)
     const gotaAnim = animate('#gota-oleo', {
-      translateY: [0, 45],
+      translateY: [0, 50],
       scaleY: [
         { value: 1, duration: 0 },
-        { value: 1.6, duration: 400, easing: 'easeInQuad' },
-        { value: 1.2, duration: 400, easing: 'easeOutQuad' },
-        { value: 0.1, duration: 200 }
+        { value: 1.6, duration: 900, easing: 'easeInQuad' },
+        { value: 0.1, duration: 500, easing: 'easeOutQuad' }
       ],
       scaleX: [
         { value: 1, duration: 0 },
-        { value: 0.7, duration: 400, easing: 'easeInQuad' },
-        { value: 0.9, duration: 400, easing: 'easeOutQuad' },
-        { value: 0.1, duration: 200 }
+        { value: 0.7, duration: 900, easing: 'easeInQuad' },
+        { value: 0.1, duration: 500, easing: 'easeOutQuad' }
       ],
       opacity: [
         { value: 0, duration: 0 },
         { value: 1, duration: 150 },
-        { value: 1, duration: 650 },
-        { value: 0, duration: 200, easing: 'easeOutQuad' }
+        { value: 1, duration: 750 },
+        { value: 0, duration: 500, easing: 'easeOutQuad' }
       ],
-      duration: 2000,
+      duration: 1400,
       easing: 'easeInQuad',
       loop: true
     });
@@ -126,52 +124,52 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           transformOrigin: 'center'
         }}
       >
-        {/* GRUPO DAS SETAS VERDES (Afastadas com raio 80 para respiro) */}
+        {/* GRUPO DAS SETAS VERDES (Afastadas com raio 85 para respiro da engrenagem maior) */}
         <g id="setas-verdes" style={{ transformOrigin: '100px 100px' }}>
           {/* Seta Superior (Sentido Horário) */}
           <path
-            d="M 20,100 A 80,80 0 0,1 170,60"
+            d="M 20,100 A 85,85 0 0,1 173,57"
             stroke="#74b22c"
             strokeWidth="8"
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ponta da Seta Superior Triangular Alinhada */}
-          <path d="M 160,48 L 182,63 L 158,73 Z" fill="#74b22c" />
+          {/* Ponta da Seta Superior Triangular Alinhada à Tangente */}
+          <path d="M 162,57 L 183,73 L 175,45 Z" fill="#74b22c" />
 
           {/* Seta Inferior (Sentido Horário) */}
           <path
-            d="M 180,100 A 80,80 0 0,1 30,140"
+            d="M 180,100 A 85,85 0 0,1 27,143"
             stroke="#74b22c"
             strokeWidth="8"
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ponta da Seta Inferior Triangular Alinhada */}
-          <path d="M 40,152 L 18,137 L 42,127 Z" fill="#74b22c" />
+          {/* Ponta da Seta Inferior Triangular Alinhada à Tangente */}
+          <path d="M 38,143 L 17,127 L 25,155 Z" fill="#74b22c" />
         </g>
 
-        {/* GRUPO DA ENGRENAGEM AZUL (Diminuída para raio 38 para criar espaçamento) */}
+        {/* GRUPO DA ENGRENAGEM AZUL (Imponente: raio de aro aumentado para 50) */}
         <g id="engrenagem-azul" style={{ transformOrigin: '100px 100px' }}>
           {/* Aro da engrenagem com centro oco/transparente */}
-          <circle cx="100" cy="100" r="38" stroke="#0f3d64" strokeWidth="12" fill="none" />
+          <circle cx="100" cy="100" r="50" stroke="#0f3d64" strokeWidth="14" fill="none" />
           
           {/* Dentes da engrenagem (12 dentes rotacionados) */}
           {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
             <rect
               key={angle}
-              x="94"
-              y="46"
-              width="12"
-              height="10"
-              rx="1.5"
+              x="93"
+              y="32"
+              width="14"
+              height="12"
+              rx="2"
               fill="#0f3d64"
               transform={`rotate(${angle} 100 100)`}
             />
           ))}
         </g>
 
-        {/* GRUPO DO GALÃO DE ÓLEO (Alta fidelidade com alça oval integrada e cor ouro do app) */}
+        {/* GRUPO DO GALÃO DO ÓLEO (Alta fidelidade com alça oval integrada e cor ouro do app) */}
         <g id="galao-preto" fill="var(--primary)" transform="translate(0, 5) rotate(-15 100 100)">
           {/* Corpo principal e Alça traseira com furo oval no mesmo path (evenodd) */}
           <path
