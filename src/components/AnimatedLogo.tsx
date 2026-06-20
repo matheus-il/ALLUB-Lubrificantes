@@ -12,6 +12,14 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
   useEffect(() => {
     if (!containerRef.current) return;
 
+    // Animação de entrada cinemática do SVG da logo
+    const svgEntradaAnim = animate('#logo-svg', {
+      opacity: [0, 1],
+      scale: [0.4, 1],
+      duration: 800,
+      easing: 'easeOutBack'
+    });
+
     // Animação das setas verdes em loop (sentido horário)
     const setasAnim = animate('#setas-verdes', {
       rotate: '1turn',
@@ -65,6 +73,7 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
     });
 
     return () => {
+      svgEntradaAnim.revert();
       setasAnim.revert();
       engrenagemAnim.revert();
       gotaAnim.revert();
@@ -73,7 +82,6 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
   }, []);
 
   const handleHover = () => {
-    // Leve pulso na engrenagem quando passar o mouse
     const engrenagem = document.querySelector('#engrenagem-azul');
     if (engrenagem) {
       animate(engrenagem, {
@@ -105,78 +113,86 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
     >
       {/* SVG da Logo ALLUB Redesenhado e Animado */}
       <svg
+        id="logo-svg"
+        {...{ translate: "no" }}
         width={isLarge ? 120 : 60}
         height={isLarge ? 120 : 60}
         viewBox="0 0 200 200"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ filter: 'drop-shadow(0 0 10px var(--primary-glow))' }}
+        style={{ 
+          opacity: 0, 
+          filter: 'drop-shadow(0 0 10px var(--primary-glow))',
+          transformOrigin: 'center'
+        }}
       >
-        {/* GRUPO DAS SETAS VERDES */}
+        {/* GRUPO DAS SETAS VERDES (Afastadas com raio 80 para respiro) */}
         <g id="setas-verdes" style={{ transformOrigin: '100px 100px' }}>
           {/* Seta Superior (Sentido Horário) */}
           <path
-            d="M 35,100 A 65,65 0 0,1 155,60"
+            d="M 20,100 A 80,80 0 0,1 170,60"
             stroke="#74b22c"
-            strokeWidth="10"
+            strokeWidth="8"
             fill="none"
             strokeLinecap="round"
           />
-          <path d="M 144,45 L 168,60 L 149,80 Z" fill="#74b22c" />
+          {/* Ponta da Seta Superior Triangular Alinhada */}
+          <path d="M 160,48 L 182,63 L 158,73 Z" fill="#74b22c" />
 
           {/* Seta Inferior (Sentido Horário) */}
           <path
-            d="M 165,100 A 65,65 0 0,1 45,140"
+            d="M 180,100 A 80,80 0 0,1 30,140"
             stroke="#74b22c"
-            strokeWidth="10"
+            strokeWidth="8"
             fill="none"
             strokeLinecap="round"
           />
-          <path d="M 56,155 L 32,140 L 51,120 Z" fill="#74b22c" />
+          {/* Ponta da Seta Inferior Triangular Alinhada */}
+          <path d="M 40,152 L 18,137 L 42,127 Z" fill="#74b22c" />
         </g>
 
-        {/* GRUPO DA ENGRENAGEM AZUL */}
+        {/* GRUPO DA ENGRENAGEM AZUL (Diminuída para raio 38 para criar espaçamento) */}
         <g id="engrenagem-azul" style={{ transformOrigin: '100px 100px' }}>
           {/* Aro da engrenagem com centro oco/transparente */}
-          <circle cx="100" cy="100" r="40" stroke="#00315a" strokeWidth="14" fill="none" />
+          <circle cx="100" cy="100" r="38" stroke="#0f3d64" strokeWidth="12" fill="none" />
           
           {/* Dentes da engrenagem (12 dentes rotacionados) */}
           {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
             <rect
               key={angle}
-              x="93"
-              y="40"
-              width="14"
-              height="14"
-              rx="2"
-              fill="#00315a"
+              x="94"
+              y="46"
+              width="12"
+              height="10"
+              rx="1.5"
+              fill="#0f3d64"
               transform={`rotate(${angle} 100 100)`}
             />
           ))}
         </g>
 
-        {/* GRUPO DO GALÃO DE ÓLEO (Inclinado para a esquerda/derramando) */}
-        <g id="galao-preto" fill="#111" transform="translate(0, 5) rotate(-15 100 100)">
-          {/* Corpo principal do galão */}
-          <rect x="75" y="92" width="40" height="24" rx="4" />
-          
-          {/* Alça do galão */}
-          <path d="M 75,96 L 62,96 L 62,112 L 75,112 L 75,106 L 67,106 L 67,102 L 75,102 Z" />
+        {/* GRUPO DO GALÃO DE ÓLEO (Alta fidelidade com alça oval integrada e cor ouro do app) */}
+        <g id="galao-preto" fill="var(--primary)" transform="translate(0, 5) rotate(-15 100 100)">
+          {/* Corpo principal e Alça traseira com furo oval no mesmo path (evenodd) */}
+          <path
+            fillRule="evenodd"
+            d="M 75,90 C 68,90 62,95 62,102 L 62,114 C 62,121 68,126 75,126 L 115,126 C 122,126 127,121 127,114 L 127,102 C 127,95 122,90 115,90 L 75,90 Z M 75,97 C 72,97 70,99 70,102 L 70,114 C 70,117 72,119 75,119 L 77,119 L 77,97 L 75,97 Z"
+          />
           
           {/* Tampa do galão */}
-          <rect x="85" y="85" width="4" height="7" />
-          <rect x="81" y="82" width="12" height="3" rx="1" />
+          <rect x="85" y="83" width="5" height="7" />
+          <rect x="80" y="80" width="15" height="3" rx="1" />
           
-          {/* Bico longo do galão */}
-          <path d="M 115,96 L 138,91 C 143,90 148,94 148,99 L 143,105 C 140,102 135,101 115,101 Z" />
+          {/* Bico curvo e orgânico do galão */}
+          <path d="M 115,94 C 126,94 138,91 146,84 C 151,80 155,83 154,88 L 146,102 C 141,100 135,99 115,99 Z" />
         </g>
 
-        {/* GOTA DE ÓLEO PINGANDO (Independente para animação translateY) */}
+        {/* GOTA DE ÓLEO PINGANDO (Cor ouro do app e posicionamento alinhado ao bico curvo) */}
         <path
           id="gota-oleo"
-          d="M 136,105 C 136,105 132,113 132,116 C 132,119 134,121 137,121 C 140,121 142,119 142,116 C 142,113 138,105 138,105 Z"
-          fill="#111"
-          style={{ transformOrigin: '137px 105px' }}
+          d="M 139,107 C 139,107 135,115 135,118 C 135,121 137,123 140,123 C 143,123 145,121 145,118 C 145,115 141,107 141,107 Z"
+          fill="var(--primary)"
+          style={{ transformOrigin: '140px 107px' }}
         />
       </svg>
 

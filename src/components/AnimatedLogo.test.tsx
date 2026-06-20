@@ -7,11 +7,14 @@ describe('AnimatedLogo Component', () => {
     const { container } = render(<AnimatedLogo size="large" />);
     
     // Verifica se os elementos com os caminhos geométricos e IDs existem no DOM
+    const logoSvg = container.querySelector('#logo-svg');
     const setasVerdes = container.querySelector('#setas-verdes');
     const engrenagemAzul = container.querySelector('#engrenagem-azul');
     const galaoPreto = container.querySelector('#galao-preto');
     const gotaOleo = container.querySelector('#gota-oleo');
 
+    expect(logoSvg).not.toBeNull();
+    expect(logoSvg?.getAttribute('translate')).toBe('no');
     expect(setasVerdes).not.toBeNull();
     expect(engrenagemAzul).not.toBeNull();
     expect(galaoPreto).not.toBeNull();
