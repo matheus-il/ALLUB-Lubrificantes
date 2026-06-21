@@ -125,11 +125,11 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           transformOrigin: 'center'
         }}
       >
-        {/* GRUPO DAS SETAS VERDES (Robustas em strokeWidth 15, formando círculo coeso de alta fidelidade) */}
+        {/* GRUPO DAS SETAS VERDES (Robustas em strokeWidth 15, raio 88px e abertura de 150° para respiro e folga) */}
         <g id="setas-verdes" style={{ transformOrigin: '100px 100px' }}>
           {/* Seta Superior (Sentido Horário - contorna o topo) */}
           <path
-            d="M 21.2,113.9 A 80,80 0 0,1 178.8,86.1"
+            d="M 15.0,122.8 A 88,88 0 0,1 185.0,77.2"
             stroke="#74b22c"
             strokeWidth="15"
             fill="none"
@@ -140,12 +140,12 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
             id="seta-ponta-superior"
             points="-16,-4 16,-4 0,16"
             fill="#74b22c"
-            transform="translate(178.8, 86.1) rotate(-10)"
+            transform="translate(185.0, 77.2) rotate(-15)"
           />
 
           {/* Seta Inferior (Sentido Horário - contorna a base) */}
           <path
-            d="M 178.8,113.9 A 80,80 0 0,1 21.2,86.1"
+            d="M 185.0,122.8 A 88,88 0 0,1 15.0,77.2"
             stroke="#74b22c"
             strokeWidth="15"
             fill="none"
@@ -156,7 +156,7 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
             id="seta-ponta-inferior"
             points="-16,-4 16,-4 0,16"
             fill="#74b22c"
-            transform="translate(21.2, 113.9) rotate(170)"
+            transform="translate(15.0, 77.2) rotate(165)"
           />
         </g>
 
@@ -180,8 +180,8 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           ))}
         </g>
 
-        {/* GRUPO DO GALÃO DO ÓLEO (Aumentado em 1.15x para equilíbrio e cor ouro do app) */}
-        <g id="galao-preto" fill="var(--primary)" transform="translate(0, 5) scale(1.15) rotate(-15 100 100)" style={{ transformOrigin: '100px 100px' }}>
+        {/* GRUPO DO GALÃO DO ÓLEO (Aumentado em 1.15x e centralizado geometricamente no meio da engrenagem) */}
+        <g id="galao-preto" fill="var(--primary)" transform="translate(100, 100) rotate(-15) scale(1.15) translate(-95, -108)">
           {/* Corpo principal e Alça traseira com furo oval no mesmo path (evenodd) */}
           <path
             fillRule="evenodd"
@@ -196,12 +196,12 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           <path d="M 115,94 C 126,94 138,91 146,84 C 151,80 155,83 154,88 L 146,102 C 141,100 135,99 115,99 Z" />
         </g>
 
-        {/* GOTA DE ÓLEO PINGANDO (Cor ouro do app e posicionamento alinhado ao bico curvo redimensionado) */}
+        {/* GOTA DE ÓLEO PINGANDO (Cor ouro do app e posicionamento alinhado ao bico curvo centralizado) */}
         <path
           id="gota-oleo"
-          d="M 145,108 C 145,108 141,116 141,119 C 141,122 143,124 146,124 C 149,124 151,122 151,119 C 151,116 147,108 147,108 Z"
+          d="M 148,86 C 148,86 144,94 144,97 C 144,100 146,102 149,102 C 152,102 154,100 154,97 C 154,94 150,86 150,86 Z"
           fill="var(--primary)"
-          style={{ transformOrigin: '146px 108px' }}
+          style={{ transformOrigin: '149px 86px' }}
         />
       </svg>
 
