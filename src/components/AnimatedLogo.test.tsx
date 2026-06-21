@@ -24,12 +24,12 @@ describe('AnimatedLogo Component', () => {
 
     // Verificações das pontas tangenciais (Opção 1)
     expect(pontaSuperior).not.toBeNull();
-    expect(pontaSuperior?.getAttribute('transform')).toContain('translate(185.0, 77.2)');
-    expect(pontaSuperior?.getAttribute('transform')).toContain('rotate(-15)');
+    expect(pontaSuperior?.getAttribute('transform')).toContain('translate(176.2, 56.0)');
+    expect(pontaSuperior?.getAttribute('transform')).toContain('rotate(-30)');
 
     expect(pontaInferior).not.toBeNull();
-    expect(pontaInferior?.getAttribute('transform')).toContain('translate(15.0, 77.2)');
-    expect(pontaInferior?.getAttribute('transform')).toContain('rotate(165)');
+    expect(pontaInferior?.getAttribute('transform')).toContain('translate(23.8, 144.0)');
+    expect(pontaInferior?.getAttribute('transform')).toContain('rotate(150)');
   });
 });
 

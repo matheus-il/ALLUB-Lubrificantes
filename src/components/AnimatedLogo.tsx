@@ -125,11 +125,11 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           transformOrigin: 'center'
         }}
       >
-        {/* GRUPO DAS SETAS VERDES (Robustas em strokeWidth 15, raio 88px e abertura de 150° para respiro e folga) */}
+        {/* GRUPO DAS SETAS VERDES (Robustas em strokeWidth 15, raio 88px e abertura de 120° para respiro e folga generosa) */}
         <g id="setas-verdes" style={{ transformOrigin: '100px 100px' }}>
           {/* Seta Superior (Sentido Horário - contorna o topo) */}
           <path
-            d="M 15.0,122.8 A 88,88 0 0,1 185.0,77.2"
+            d="M 23.8,56.0 A 88,88 0 0,1 176.2,56.0"
             stroke="#74b22c"
             strokeWidth="15"
             fill="none"
@@ -140,12 +140,12 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
             id="seta-ponta-superior"
             points="-16,-4 16,-4 0,16"
             fill="#74b22c"
-            transform="translate(185.0, 77.2) rotate(-15)"
+            transform="translate(176.2, 56.0) rotate(-30)"
           />
 
           {/* Seta Inferior (Sentido Horário - contorna a base) */}
           <path
-            d="M 185.0,122.8 A 88,88 0 0,1 15.0,77.2"
+            d="M 176.2,144.0 A 88,88 0 0,1 23.8,144.0"
             stroke="#74b22c"
             strokeWidth="15"
             fill="none"
@@ -156,7 +156,7 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
             id="seta-ponta-inferior"
             points="-16,-4 16,-4 0,16"
             fill="#74b22c"
-            transform="translate(15.0, 77.2) rotate(165)"
+            transform="translate(23.8, 144.0) rotate(150)"
           />
         </g>
 
