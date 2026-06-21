@@ -66,5 +66,13 @@ describe('AnimatedLogo Component', () => {
     checkKeyframes(gotaParams.scaleX);
     checkKeyframes(gotaParams.opacity);
   });
+
+  it('deve exibir a palavra MULTIMARCAS apenas quando size for large', () => {
+    const { queryByText, rerender } = render(<AnimatedLogo size="small" />);
+    expect(queryByText('MULTIMARCAS')).toBeNull();
+
+    rerender(<AnimatedLogo size="large" />);
+    expect(queryByText('MULTIMARCAS')).not.toBeNull();
+  });
 });
 

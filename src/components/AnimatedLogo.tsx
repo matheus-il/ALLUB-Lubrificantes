@@ -234,21 +234,40 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           </span>
         ))}
         {isLarge && (
-          <span
+          <div
             className="logo-letter"
             style={{
-              fontSize: 12,
-              fontWeight: 500,
-              color: 'var(--text-secondary)',
-              letterSpacing: 2,
-              marginTop: 4,
-              display: 'block',
-              width: '100%',
-              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'flex-start',
+              marginLeft: 8,
+              lineHeight: 1.1,
+              opacity: 0,
             }}
           >
-            LUBRIFICANTES
-          </span>
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 500,
+                color: 'var(--text-secondary)',
+                letterSpacing: 2,
+              }}
+            >
+              LUBRIFICANTES
+            </span>
+            <span
+              style={{
+                fontSize: 9,
+                fontWeight: 600,
+                color: 'var(--primary)',
+                letterSpacing: 1.5,
+                marginTop: 2,
+              }}
+            >
+              MULTIMARCAS
+            </span>
+          </div>
         )}
       </div>
     </div>
