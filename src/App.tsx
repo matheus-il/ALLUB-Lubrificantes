@@ -78,18 +78,6 @@ function App() {
         }}
       >
         <AnimatedLogo size="small" />
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 12, color: 'var(--text-secondary)' }}>
-          <span 
-            style={{ 
-              width: 8, 
-              height: 8, 
-              borderRadius: '50%', 
-              backgroundColor: 'var(--success)',
-              display: 'inline-block'
-            }} 
-          />
-          <span>Online</span>
-        </div>
       </header>
 
       {/* Conteúdo Principal Scrollável */}

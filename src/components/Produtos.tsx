@@ -25,6 +25,7 @@ export const Produtos: React.FC<ProdutosProps> = ({ userId }) => {
   const [editingProduto, setEditingProduto] = useState<Produto | null>(null);
   
   // Campos do formulário
+  const [codigo, setCodigo] = useState('');
   const [nomeDescricao, setNomeDescricao] = useState('');
   const [valor, setValor] = useState('');
   
@@ -35,11 +36,7 @@ export const Produtos: React.FC<ProdutosProps> = ({ userId }) => {
   // Modal de confirmação de exclusão
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
 
-  useEffect(() => {
-    fetchProdutos();
-  }, []);
-
-  const fetchProdutos = async () => {
+  async function fetchProdutos() {
     setLoading(true);
     try {
       // Regra de Negócio: A listagem de produtos deverá ser sempre em ordem alfabética.
@@ -61,10 +58,17 @@ export const Produtos: React.FC<ProdutosProps> = ({ userId }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchProdutos();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const openAddModal = () => {
     setEditingProduto(null);
+    setCodigo('');
     setNomeDescricao('');
     setValor('');
     setFormError(null);
@@ -73,6 +77,7 @@ export const Produtos: React.FC<ProdutosProps> = ({ userId }) => {
 
   const openEditModal = (produto: Produto) => {
     setEditingProduto(produto);
+    setCodigo(produto.codigo.toString());
     setNomeDescricao(produto.nome_descricao);
     setValor(produto.valor.toString());
     setFormError(null);
@@ -89,14 +94,32 @@ export const Produtos: React.FC<ProdutosProps> = ({ userId }) => {
       return;
     }
 
+    if (valParsed >= 100000000) {
+      setFormError('O valor máximo permitido é R$ 99.999.999,99.');
+      return;
+    }
+
+    let codParsed: number | undefined = undefined;
+    if (codigo.trim()) {
+      codParsed = parseInt(codigo, 10);
+      if (isNaN(codParsed) || codParsed <= 0) {
+        setFormError('O código do produto deve ser um número inteiro maior que zero.');
+        return;
+      }
+    }
+
     setSaveLoading(true);
 
     try {
-      const payload = {
+      const payload: any = {
         user_id: userId,
         nome_descricao: nomeDescricao,
         valor: valParsed
       };
+
+      if (codParsed !== undefined) {
+        payload.codigo = codParsed;
+      }
 
       if (editingProduto) {
         // Atualizar
@@ -107,7 +130,7 @@ export const Produtos: React.FC<ProdutosProps> = ({ userId }) => {
           
         if (error) throw error;
       } else {
-        // Inserir - o campo 'codigo' é gerado automaticamente pelo banco como Identity
+        // Inserir
         const { error } = await supabase
           .from('produtos')
           .insert(payload);
@@ -317,22 +340,25 @@ export const Produtos: React.FC<ProdutosProps> = ({ userId }) => {
                 </div>
               )}
 
-              {editingProduto && (
-                <div className="input-group">
-                  <label className="input-label">Código do Produto</label>
-                  <input
-                    type="text"
-                    disabled
-                    className="input-field"
-                    style={{ opacity: 0.6, cursor: 'not-allowed' }}
-                    value={editingProduto.codigo}
-                  />
-                </div>
-              )}
+              <div className="input-group">
+                <label htmlFor="codigo" className="input-label">Código do Produto</label>
+                <input
+                  id="codigo"
+                  type="text"
+                  className="input-field"
+                  placeholder="Gerado automático se vazio"
+                  value={codigo}
+                  onChange={(e) => {
+                    const cleaned = e.target.value.replace(/\D/g, '');
+                    setCodigo(cleaned);
+                  }}
+                />
+              </div>
 
               <div className="input-group">
-                <label className="input-label">Nome / Descrição *</label>
+                <label htmlFor="nomeDescricao" className="input-label">Nome / Descrição *</label>
                 <input
+                  id="nomeDescricao"
                   type="text"
                   required
                   className="input-field"
@@ -343,20 +369,45 @@ export const Produtos: React.FC<ProdutosProps> = ({ userId }) => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">Valor (R$) *</label>
+                <label htmlFor="valor" className="input-label">Valor (R$) *</label>
                 <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
                   <DollarSign 
                     size={16} 
                     style={{ position: 'absolute', left: 16, color: 'var(--text-muted)' }} 
                   />
                   <input
+                    id="valor"
                     type="text"
                     required
                     className="input-field"
                     placeholder="0,00"
                     style={{ width: '100%', paddingLeft: 40 }}
                     value={valor}
-                    onChange={(e) => setValor(e.target.value)}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      // Keep only digits and decimal separators
+                      let cleaned = val.replace(/[^0-9.,]/g, '');
+                      
+                      // Normalize decimal separator (use comma or dot)
+                      const firstSeparatorIndex = cleaned.search(/[.,]/);
+                      if (firstSeparatorIndex !== -1) {
+                        const before = cleaned.slice(0, firstSeparatorIndex);
+                        const after = cleaned.slice(firstSeparatorIndex + 1).replace(/[.,]/g, '');
+                        // Limit decimal part to 2 digits
+                        cleaned = before + cleaned[firstSeparatorIndex] + after.slice(0, 2);
+                      }
+                      
+                      // Split integer and decimal parts
+                      const parts = cleaned.split(/[.,]/);
+                      const integerPart = parts[0];
+                      
+                      // Limit integer part to 8 digits
+                      if (integerPart.length > 8) {
+                        return;
+                      }
+                      
+                      setValor(cleaned);
+                    }}
                   />
                 </div>
               </div>

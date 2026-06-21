@@ -52,6 +52,7 @@ body {
   width: 100%;
   max-width: 460px; /* Estilo Celular */
   height: 100vh;
+  height: 100dvh;
   max-height: 900px;
   background-color: var(--bg-dark);
   border: 1px solid var(--border-color);
@@ -63,12 +64,16 @@ body {
   box-sizing: border-box;
 }
 
-/* Se for celular real, remove as bordas do mockup */
+/* Se for celular real, remove as bordas do mockup e trava o scroll da página no navegador */
 @media (max-width: 480px) {
+  html, body {
+    overflow: hidden;
+    height: 100dvh;
+  }
   #root {
     max-width: 100%;
-    height: 100vh;
-    max-height: 100vh;
+    height: 100dvh;
+    max-height: 100dvh;
     border: none;
     border-radius: 0;
   }

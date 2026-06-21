@@ -370,16 +370,16 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
                   <Phone size={13} className="text-muted" />
                   <span>{formatPhone(cliente.telefone_1 || '')} {cliente.telefone_2 && `/ ${formatPhone(cliente.telefone_2 || '')}`}</span>
                 </div>
-                {cliente.email && (
+                 {cliente.email && (
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <Mail size={13} className="text-muted" />
-                    <span>{cliente.email}</span>
+                    <Mail size={13} className="text-muted" style={{ flexShrink: 0 }} />
+                    <span style={{ wordBreak: 'break-all', flex: 1 }}>{cliente.email}</span>
                   </div>
                 )}
                 {(cliente.cidade || cliente.estado) && (
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <MapPin size={13} className="text-muted" />
-                    <span>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 6 }}>
+                    <MapPin size={13} className="text-muted" style={{ marginTop: 2, flexShrink: 0 }} />
+                    <span style={{ wordBreak: 'break-word', whiteSpace: 'normal', flex: 1 }}>
                       {cliente.rua && `${cliente.rua}, `}{cliente.numero && `${cliente.numero} - `}{cliente.cidade}/{cliente.estado}
                     </span>
                   </div>
@@ -483,7 +483,7 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '2.5fr 1fr', gap: 12 }}>
                 <div className="input-group">
                   <label className="input-label">CEP</label>
                   <input
@@ -529,7 +529,7 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
                 />
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: 12 }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '3.5fr 1fr', gap: 12 }}>
                 <div className="input-group">
                   <label className="input-label">Cidade</label>
                   <input

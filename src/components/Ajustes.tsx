@@ -1,6 +1,6 @@
 import React from 'react';
 import { supabase } from '../supabase';
-import { LogOut, Wifi, User, ShieldCheck } from 'lucide-react';
+import { LogOut, User, ShieldCheck } from 'lucide-react';
 
 interface AjustesProps {
   userEmail: string;
@@ -79,14 +79,6 @@ export const Ajustes: React.FC<AjustesProps> = ({ userEmail, onLogout }) => {
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <Wifi size={18} color="var(--success)" />
-          <div style={{ flex: 1 }}>
-            <h4 style={{ fontSize: 14, color: '#fff', fontWeight: 500 }}>Conexão com Banco</h4>
-            <p style={{ fontSize: 12, color: 'var(--success)', marginTop: 2 }}>Sincronização 100% Online Ativa</p>
-          </div>
-        </div>
-
-        <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: 12, display: 'flex', alignItems: 'center', gap: 12 }}>
           <ShieldCheck size={18} color="var(--primary)" />
           <div style={{ flex: 1 }}>
             <h4 style={{ fontSize: 14, color: '#fff', fontWeight: 500 }}>Segurança de Dados</h4>
