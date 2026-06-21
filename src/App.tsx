@@ -14,6 +14,10 @@ function App() {
   const [activeTab, setActiveTab] = useState<'clientes' | 'produtos' | 'ajustes'>('clientes');
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      (window as any).supabase = supabase;
+    }
+
     // Busca sessão inicial
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);

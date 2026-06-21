@@ -1,6 +1,6 @@
 # Checklist De Revisao Final Do Lucy
 
-Tarefa: Lucy o Scroll horizontal ainda permanece poderia verifica por gentileza  
+Tarefa: pode popular a aplicação lucy, o banco de dados  
 Workspace: `C:\Users\pedro\Desktop\ALLUB`  
 Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 
