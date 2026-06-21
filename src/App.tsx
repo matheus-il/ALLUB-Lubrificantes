@@ -72,7 +72,7 @@ function App() {
       <header 
         className="glass" 
         style={{
-          padding: '12px 16px',
+          padding: 'calc(12px + env(safe-area-inset-top, 0px)) 16px 12px 16px',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
@@ -93,11 +93,8 @@ function App() {
       <nav 
         className="glass" 
         style={{
-          position: 'absolute',
-          bottom: 0,
-          left: 0,
-          width: '100%',
-          height: '68px',
+          height: 'calc(68px + env(safe-area-inset-bottom, 0px))',
+          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
           display: 'grid',
           gridTemplateColumns: '1/3 1/3 1/3',
           gridAutoFlow: 'column',
