@@ -1,6 +1,6 @@
 # START HERE - Lucy
 
-Tarefa: AGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA SIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK FICOU MAGNIFICO !!!! KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SÓ QUE UMA ANIMAÇÃO PAROU... a gotinha não funciona mais kkkkkkkkkkkkkkkkkkkk Pode verificar por gentileza  
+Tarefa: pode popular a aplicação lucy, o banco de dados  
 Workspace: `C:\Users\pedro\Desktop\ALLUB`  
 Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 
@@ -11,10 +11,6 @@ Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 - `.lucy\COMMAND_POLICY.md`
 - `.lucy\PROJECT_PROFILE.md`
 - `.lucy\GSD_TASK.md`
-- `.lucy\UI_UX_BRIEF.md`
-- `.lucy\FRONTEND_EXCELLENCE.md`
-- `.lucy\MOTION_EFFECTS.md`
-- `.lucy\RESOURCE_RADAR.md`
 - `.lucy\START_HERE.md`
 
 ## Ordem Recomendada Para O Agente
@@ -35,13 +31,13 @@ Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 14. Confirmar falha esperada.
 15. Implementar a tarefa no workspace atual.
 16. Rodar validacoes disponiveis.
-17. Rodar `lucy review --task "AGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA SIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK FICOU MAGNIFICO !!!! KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SÓ QUE UMA ANIMAÇÃO PAROU... a gotinha não funciona mais kkkkkkkkkkkkkkkkkkkk Pode verificar por gentileza" --write` antes de concluir.
+17. Rodar `lucy review --task "pode popular a aplicação lucy, o banco de dados" --write` antes de concluir.
 18. Salvar memoria se houver decisao reutilizavel.
 
 ## Gates Detectados
 
 - Seguranca: nao detectado automaticamente
-- UI/UX: sim
-- Frontend: sim
-- Motion: sim
+- UI/UX: nao detectado automaticamente
+- Frontend: nao detectado automaticamente
+- Motion: nao detectado automaticamente
 - GitHub/Coolify/Deploy: nao detectado automaticamente

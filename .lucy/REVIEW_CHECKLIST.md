@@ -1,6 +1,6 @@
 # Checklist De Revisao Final Do Lucy
 
-Tarefa: Lucy para fecharmos com chave de ouro o favicon lata de oleo.png poderia inserir ela no nosso projeto? E outra em baixo do Lubrificantes inserir a palavra multimarcas por gentileza  
+Tarefa: Lucy o Scroll horizontal ainda permanece poderia verifica por gentileza  
 Workspace: `C:\Users\pedro\Desktop\ALLUB`  
 Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 
