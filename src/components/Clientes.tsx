@@ -449,8 +449,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
               )}
 
               <div className="input-group">
-                <label className="input-label">CPF ou CNPJ *</label>
+                <label htmlFor="cnpjCpf" className="input-label">CPF ou CNPJ *</label>
                 <input
+                  id="cnpjCpf"
                   type="text"
                   required
                   className="input-field"
@@ -461,8 +462,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">Nome Fantasia *</label>
+                <label htmlFor="nomeFantasia" className="input-label">Nome Fantasia *</label>
                 <input
+                  id="nomeFantasia"
                   type="text"
                   required
                   className="input-field"
@@ -473,8 +475,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">Razão Social</label>
+                <label htmlFor="razaoSocial" className="input-label">Razão Social</label>
                 <input
+                  id="razaoSocial"
                   type="text"
                   className="input-field"
                   placeholder="Razão Social completa"
@@ -485,8 +488,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '2.5fr 1fr', gap: 12 }}>
                 <div className="input-group">
-                  <label className="input-label">CEP</label>
+                  <label htmlFor="cep" className="input-label">CEP</label>
                   <input
+                    id="cep"
                     type="text"
                     className="input-field"
                     placeholder="00000-000"
@@ -496,8 +500,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
                   />
                 </div>
                 <div className="input-group">
-                  <label className="input-label">Número</label>
+                  <label htmlFor="numero" className="input-label">Número</label>
                   <input
+                    id="numero"
                     type="text"
                     className="input-field"
                     placeholder="Nº ou S/N"
@@ -508,8 +513,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">Rua</label>
+                <label htmlFor="rua" className="input-label">Rua</label>
                 <input
+                  id="rua"
                   type="text"
                   className="input-field"
                   placeholder="Preenchido via CEP"
@@ -519,8 +525,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">Bairro</label>
+                <label htmlFor="bairro" className="input-label">Bairro</label>
                 <input
+                  id="bairro"
                   type="text"
                   className="input-field"
                   placeholder="Preenchido via CEP"
@@ -531,8 +538,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '3.5fr 1fr', gap: 12 }}>
                 <div className="input-group">
-                  <label className="input-label">Cidade</label>
+                  <label htmlFor="cidade" className="input-label">Cidade</label>
                   <input
+                    id="cidade"
                     type="text"
                     className="input-field"
                     placeholder="Cidade"
@@ -541,8 +549,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
                   />
                 </div>
                 <div className="input-group">
-                  <label className="input-label">Estado</label>
+                  <label htmlFor="estado" className="input-label">Estado</label>
                   <input
+                    id="estado"
                     type="text"
                     className="input-field"
                     placeholder="UF"
@@ -554,8 +563,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">Telefone 1 *</label>
+                <label htmlFor="telefone1" className="input-label">Telefone 1 *</label>
                 <input
+                  id="telefone1"
                   type="tel"
                   required
                   className="input-field"
@@ -566,8 +576,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">Telefone 2</label>
+                <label htmlFor="telefone2" className="input-label">Telefone 2</label>
                 <input
+                  id="telefone2"
                   type="tel"
                   className="input-field"
                   placeholder="(00) 00000-0000"
@@ -577,8 +588,9 @@ export const Clientes: React.FC<ClientesProps> = ({ userId }) => {
               </div>
 
               <div className="input-group">
-                <label className="input-label">E-mail</label>
+                <label htmlFor="email" className="input-label">E-mail</label>
                 <input
+                  id="email"
                   type="email"
                   className="input-field"
                   placeholder="cliente@email.com"
