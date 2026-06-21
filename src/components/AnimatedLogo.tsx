@@ -38,22 +38,21 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
 
     // Animação fluida e contínua da gota de óleo pingando (sem travadas no final)
     const gotaAnim = animate('#gota-oleo', {
-      translateY: [0, 50],
+      translateY: [0, 48],
       scaleY: [
         { value: 1, duration: 0 },
-        { value: 1.6, duration: 900, easing: 'easeInQuad' },
-        { value: 0.1, duration: 500, easing: 'easeOutQuad' }
+        { value: 1.6, duration: 800, easing: 'easeInQuad' },
+        { value: 0.1, duration: 600, easing: 'easeOutQuad' }
       ],
       scaleX: [
         { value: 1, duration: 0 },
-        { value: 0.7, duration: 900, easing: 'easeInQuad' },
-        { value: 0.1, duration: 500, easing: 'easeOutQuad' }
+        { value: 0.7, duration: 800, easing: 'easeInQuad' },
+        { value: 0.1, duration: 600, easing: 'easeOutQuad' }
       ],
       opacity: [
         { value: 0, duration: 0 },
         { value: 1, duration: 150 },
-        { value: 1, duration: 750 },
-        { value: 0, duration: 500, easing: 'easeOutQuad' }
+        { value: 0, duration: 1250, easing: 'easeInQuad' }
       ],
       duration: 1400,
       easing: 'easeInQuad',
@@ -124,43 +123,43 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           transformOrigin: 'center'
         }}
       >
-        {/* GRUPO DAS SETAS VERDES (Afastadas com raio 85 para respiro da engrenagem maior) */}
+        {/* GRUPO DAS SETAS VERDES (Perfeitamente circulares, simétricas, raio 82) */}
         <g id="setas-verdes" style={{ transformOrigin: '100px 100px' }}>
           {/* Seta Superior (Sentido Horário) */}
           <path
-            d="M 20,100 A 85,85 0 0,1 173,57"
+            d="M 20.8,78.8 A 82,82 0 0,1 179.2,78.8"
             stroke="#74b22c"
             strokeWidth="8"
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ponta da Seta Superior Triangular Alinhada à Tangente */}
-          <path d="M 162,57 L 183,73 L 175,45 Z" fill="#74b22c" />
+          {/* Ponta da Seta Superior Simétrica e Alinhada */}
+          <path d="M 170,68 L 188,81 L 169,91 Z" fill="#74b22c" />
 
           {/* Seta Inferior (Sentido Horário) */}
           <path
-            d="M 180,100 A 85,85 0 0,1 27,143"
+            d="M 179.2,121.2 A 82,82 0 0,1 20.8,121.2"
             stroke="#74b22c"
             strokeWidth="8"
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ponta da Seta Inferior Triangular Alinhada à Tangente */}
-          <path d="M 38,143 L 17,127 L 25,155 Z" fill="#74b22c" />
+          {/* Ponta da Seta Inferior Simétrica e Alinhada */}
+          <path d="M 30,132 L 12,119 L 31,109 Z" fill="#74b22c" />
         </g>
 
-        {/* GRUPO DA ENGRENAGEM AZUL (Imponente: raio de aro aumentado para 50) */}
+        {/* GRUPO DA ENGRENAGEM AZUL (Imponente: raio de aro 48) */}
         <g id="engrenagem-azul" style={{ transformOrigin: '100px 100px' }}>
           {/* Aro da engrenagem com centro oco/transparente */}
-          <circle cx="100" cy="100" r="50" stroke="#0f3d64" strokeWidth="14" fill="none" />
+          <circle cx="100" cy="100" r="48" stroke="#0f3d64" strokeWidth="12" fill="none" />
           
           {/* Dentes da engrenagem (12 dentes rotacionados) */}
           {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
             <rect
               key={angle}
-              x="93"
-              y="32"
-              width="14"
+              x="94"
+              y="34"
+              width="12"
               height="12"
               rx="2"
               fill="#0f3d64"
