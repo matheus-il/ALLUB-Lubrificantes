@@ -125,38 +125,38 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           transformOrigin: 'center'
         }}
       >
-        {/* GRUPO DAS SETAS VERDES (Afastadas com raio 80, escala proporcional exata do triângulo perfeito) */}
+        {/* GRUPO DAS SETAS VERDES (Robustas em strokeWidth 15, formando círculo coeso de alta fidelidade) */}
         <g id="setas-verdes" style={{ transformOrigin: '100px 100px' }}>
-          {/* Seta Superior (Sentido Horário) */}
+          {/* Seta Superior (Sentido Horário - contorna o topo) */}
           <path
-            d="M 20,100 A 80,80 0 0,1 168,51"
+            d="M 21.2,113.9 A 80,80 0 0,1 178.8,86.1"
             stroke="#74b22c"
-            strokeWidth="8"
+            strokeWidth="15"
             fill="none"
-            strokeLinecap="round"
+            strokeLinecap="butt"
           />
-          {/* Ponta da Seta Superior Simétrica Proporcional (Opção 1) */}
-          <path
+          {/* Ponta da Seta Superior Simétrica Proporcional (Triângulo Tangente Robusto) */}
+          <polygon
             id="seta-ponta-superior"
-            d="M -12,-8 L 4,0 L -12,8 Z"
+            points="-16,-4 16,-4 0,16"
             fill="#74b22c"
-            transform="translate(168, 51) rotate(54.25)"
+            transform="translate(178.8, 86.1) rotate(-10)"
           />
 
-          {/* Seta Inferior (Sentido Horário) */}
+          {/* Seta Inferior (Sentido Horário - contorna a base) */}
           <path
-            d="M 180,100 A 80,80 0 0,1 32,149"
+            d="M 178.8,113.9 A 80,80 0 0,1 21.2,86.1"
             stroke="#74b22c"
-            strokeWidth="8"
+            strokeWidth="15"
             fill="none"
-            strokeLinecap="round"
+            strokeLinecap="butt"
           />
-          {/* Ponta da Seta Inferior Simétrica Proporcional (Opção 1) */}
-          <path
+          {/* Ponta da Seta Inferior Simétrica Proporcional (Triângulo Tangente Robusto) */}
+          <polygon
             id="seta-ponta-inferior"
-            d="M -12,-8 L 4,0 L -12,8 Z"
+            points="-16,-4 16,-4 0,16"
             fill="#74b22c"
-            transform="translate(32, 149) rotate(234.25)"
+            transform="translate(21.2, 113.9) rotate(170)"
           />
         </g>
 
@@ -180,8 +180,8 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           ))}
         </g>
 
-        {/* GRUPO DO GALÃO DO ÓLEO (Alta fidelidade com alça oval integrada e cor ouro do app) */}
-        <g id="galao-preto" fill="var(--primary)" transform="translate(0, 5) rotate(-15 100 100)">
+        {/* GRUPO DO GALÃO DO ÓLEO (Aumentado em 1.15x para equilíbrio e cor ouro do app) */}
+        <g id="galao-preto" fill="var(--primary)" transform="translate(0, 5) scale(1.15) rotate(-15 100 100)" style={{ transformOrigin: '100px 100px' }}>
           {/* Corpo principal e Alça traseira com furo oval no mesmo path (evenodd) */}
           <path
             fillRule="evenodd"
@@ -196,12 +196,12 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           <path d="M 115,94 C 126,94 138,91 146,84 C 151,80 155,83 154,88 L 146,102 C 141,100 135,99 115,99 Z" />
         </g>
 
-        {/* GOTA DE ÓLEO PINGANDO (Cor ouro do app e posicionamento alinhado ao bico curvo) */}
+        {/* GOTA DE ÓLEO PINGANDO (Cor ouro do app e posicionamento alinhado ao bico curvo redimensionado) */}
         <path
           id="gota-oleo"
-          d="M 139,107 C 139,107 135,115 135,118 C 135,121 137,123 140,123 C 143,123 145,121 145,118 C 145,115 141,107 141,107 Z"
+          d="M 145,108 C 145,108 141,116 141,119 C 141,122 143,124 146,124 C 149,124 151,122 151,119 C 151,116 147,108 147,108 Z"
           fill="var(--primary)"
-          style={{ transformOrigin: '140px 107px' }}
+          style={{ transformOrigin: '146px 108px' }}
         />
       </svg>
 
