@@ -1,9 +1,9 @@
 # Lucy Command Policy
 
-Tarefa: Planejar a aplicacao Allub Lubrificantes, mobile-first, cadastro de clientes e produtos, com orcamento zero e persistencia free tier  
+Tarefa: AGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA SIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK FICOU MAGNIFICO !!!! KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SÓ QUE UMA ANIMAÇÃO PAROU... a gotinha não funciona mais kkkkkkkkkkkkkkkkkkkk Pode verificar por gentileza  
 Workspace: `C:\Users\pedro\Desktop\ALLUB`  
 Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`  
-Gerado em: 2026-06-06 21:49
+Gerado em: 2026-06-20 22:15
 
 ## Principio
 
@@ -28,7 +28,9 @@ rede, instalacao e deploy como eventos de risco.
 
 ## Validacoes Detectadas
 
-- [ ] Definir no projeto um comando headless de teste/lint/build.
+- [ ] `npm run test`
+- [ ] `npm run lint`
+- [ ] `npm run build`
 
 ## Perguntar Antes
 
@@ -56,7 +58,8 @@ rede, instalacao e deploy como eventos de risco.
 
 ## Sinais Sensiveis No Workspace
 
-- Nenhum arquivo sensivel obvio detectado na raiz.
+- `.env` existe na raiz; nao ler, resumir ou enviar ao modelo.
+- `.env.example` parece sensivel; tratar como bloqueado.
 
 ## Fontes De Aprendizado Incorporadas
 

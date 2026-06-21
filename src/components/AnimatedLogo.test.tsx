@@ -1,8 +1,21 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render } from '@testing-library/react';
 import { AnimatedLogo } from './AnimatedLogo';
 
+const animateSpy = vi.fn().mockReturnValue({ revert: () => {} });
+
+vi.mock('animejs', () => ({
+  animate: (targets: unknown, params: unknown) => {
+    animateSpy(targets, params);
+    return { revert: () => {} };
+  },
+  stagger: (val: unknown) => val,
+}));
+
 describe('AnimatedLogo Component', () => {
+  beforeEach(() => {
+    animateSpy.mockClear();
+  });
   it('deve renderizar a estrutura SVG da logo animada com os IDs de animação corretos', () => {
     const { container } = render(<AnimatedLogo size="large" />);
     
@@ -30,6 +43,28 @@ describe('AnimatedLogo Component', () => {
     expect(pontaInferior).not.toBeNull();
     expect(pontaInferior?.getAttribute('transform')).toContain('translate(23.8, 144.0)');
     expect(pontaInferior?.getAttribute('transform')).toContain('rotate(150)');
+  });
+
+  it('deve configurar a animação da gota de óleo usando a sintaxe correta do Anime.js v4 (to e ease)', () => {
+    render(<AnimatedLogo size="large" />);
+
+    const gotaCall = animateSpy.mock.calls.find(call => call[0] === '#gota-oleo');
+    expect(gotaCall).not.toBeUndefined();
+    const gotaParams = gotaCall?.[1];
+    expect(gotaParams).toBeDefined();
+
+    const checkKeyframes = (keyframes: unknown) => {
+      if (!Array.isArray(keyframes)) return;
+      keyframes.forEach((kf: unknown) => {
+        expect(kf).not.toHaveProperty('value');
+        expect(kf).not.toHaveProperty('easing');
+      });
+    };
+
+    checkKeyframes(gotaParams.translateY);
+    checkKeyframes(gotaParams.scaleY);
+    checkKeyframes(gotaParams.scaleX);
+    checkKeyframes(gotaParams.opacity);
   });
 });
 

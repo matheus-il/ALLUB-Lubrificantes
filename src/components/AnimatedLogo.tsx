@@ -39,23 +39,23 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
     // Animação fluida e contínua da gota de óleo pingando (com keyframes explícitos para fade-out de 1250ms)
     const gotaAnim = animate('#gota-oleo', {
       translateY: [
-        { value: 0, duration: 0 },
-        { value: 48, duration: 1400, easing: 'easeInQuad' }
+        { to: 0, duration: 0 },
+        { to: 48, duration: 1400, ease: 'easeInQuad' }
       ],
       scaleY: [
-        { value: 1, duration: 0 },
-        { value: 1.6, duration: 800, easing: 'easeInQuad' },
-        { value: 0.1, duration: 600, easing: 'easeOutQuad' }
+        { to: 1, duration: 0 },
+        { to: 1.6, duration: 800, ease: 'easeInQuad' },
+        { to: 0.1, duration: 600, ease: 'easeOutQuad' }
       ],
       scaleX: [
-        { value: 1, duration: 0 },
-        { value: 0.7, duration: 800, easing: 'easeInQuad' },
-        { value: 0.1, duration: 600, easing: 'easeOutQuad' }
+        { to: 1, duration: 0 },
+        { to: 0.7, duration: 800, ease: 'easeInQuad' },
+        { to: 0.1, duration: 600, ease: 'easeOutQuad' }
       ],
       opacity: [
-        { value: 0, duration: 0 },
-        { value: 1, duration: 150, easing: 'linear' },
-        { value: 0, duration: 1250, easing: 'linear' }
+        { to: 0, duration: 0 },
+        { to: 1, duration: 150, ease: 'linear' },
+        { to: 0, duration: 1250, ease: 'linear' }
       ],
       duration: 1400,
       loop: true

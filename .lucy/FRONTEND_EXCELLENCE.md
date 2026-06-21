@@ -1,6 +1,6 @@
 # Lucy Frontend Excellence
 
-Tarefa: Planejar a aplicacao Allub Lubrificantes, mobile-first, cadastro de clientes e produtos, com orcamento zero e persistencia free tier  
+Tarefa: AGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA SIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK FICOU MAGNIFICO !!!! KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SÓ QUE UMA ANIMAÇÃO PAROU... a gotinha não funciona mais kkkkkkkkkkkkkkkkkkkk Pode verificar por gentileza  
 Workspace: `C:\Users\pedro\Desktop\ALLUB`  
 Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 
@@ -78,14 +78,14 @@ Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 
 - #35 [2026-05-25 17:50:32] canal-dinamico-loja-furos-estoque | tags: projeto,ide,baselinker,database,frontend,prioridade
   Mapeado dinamicamente a respectiva loja originaria da API do BaseLinker (campo order_page) para a coluna canal no WMS como 'FURO - {NomeDaLoja}' nas OPs de Furo de Estoque. A presenca da palavra 'FURO' mantem 100% a compatibilidade de maxima prioridade de ordenacao no topo e os badges com chamas (emoji fogo) no frontend de producao.
-- #43 [2026-05-26 19:39:09] Gerador de Relatórios Premium de OP | tags: relatorio,pdf,excel,wms,busca
-  Criada funcionalidade de exportacao de OPs filtradas por periodo e SKU para formatos Excel formatado (Pandas) e PDF estruturado com Cabecalho Oficial Lopazzi (ReportLab), suportando selecao dinamica de colunas no frontend via modal Bootstrap premium.
-- #108 [2026-06-03 01:01:54] Correcao de Autocomplete e Trava de Imagens | tags: bugfix,autocomplete,gemini,docker
-  Corrigido autocomplete de SKUs blindando o import de db_manager contra diferencas de path no Docker. Flexibilizada trava de imagens no app.py para aceitar de 1 a 4 referencias em sintonia com o frontend.
-- #30 [2026-05-25 01:24:11] normalizacao-datetime-postgres-flask | tags: projeto,ide,postgresql,python,javascript
-  Em bancos PostgreSQL/Cloud, campos DATETIME retornam como datetime.datetime. Devem ser convertidos para string YYYY-MM-DD HH:MM:SS no backend para evitar que a letra 'T' e os objetos datetime quebrem o split(' ') do Javascript no frontend.
-- #42 [2026-05-26 19:21:13] Busca de Cores de Cubas no WMS | tags: cuba,cores,busca,wms,banco_de_dados
-  Mapeado nome_produto dinamicamente no endpoint /listar_ops usando a funcao obter_descricao_cuba de gerador_etiquetas.py e a tabela de produtos, reativando a busca nativa por cores e nomes de cubas e produtos adormecida no frontend do Monitor de OPs.
+- #187 [2026-06-17 17:13:38] Etiqueta Pai para Cubas | tags: cuba,lote,palete,wms
+  Habilitação da funcionalidade de Etiqueta Pai (recebimento em lote) para Cubas, removendo a restrição de fabrica.cuba no frontend index.html.
+- #218 [2026-06-21 00:16:46] Logo Animada ALLUB | tags: logo,animejs,frontend
+  Refatorado o SVG para alta fidelidade com setas simétricas de raio 80, engrenagem de raio 48 e animação contínua de gotejamento com fade-out de 1250ms no Anime.js v4
+- #176 [2026-06-15 01:36:00] Inicialização Completa da Aplicação | tags: projeto,ide,operacao
+  Quando o Pedrin pedir para rodar a aplicação inteira, eu sempre devo iniciar todos os componentes, incluindo backend, frontend e os extratores de dados (como o extrator_90_dias.py), sem perguntar script por script.
+- #202 [2026-06-19 14:58:10] Filtro de multiplas lojas na Sidebar do integrador Magalu | tags: sidebar,lojas,filtro,javascript
+  Adicionado seletor de lojas (Lopazzi, Artto, Rocco) na Sidebar e implementado filtro de dados em tempo real no frontend javascript com base na chave store adicionada nos registros de chat.
 
 ## Skills Relevantes
 

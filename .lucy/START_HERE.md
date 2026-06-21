@@ -1,6 +1,6 @@
 # START HERE - Lucy
 
-Tarefa: Planejar a aplicacao Allub Lubrificantes, mobile-first, cadastro de clientes e produtos, com orcamento zero e persistencia free tier  
+Tarefa: AGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA SIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK FICOU MAGNIFICO !!!! KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SÓ QUE UMA ANIMAÇÃO PAROU... a gotinha não funciona mais kkkkkkkkkkkkkkkkkkkk Pode verificar por gentileza  
 Workspace: `C:\Users\pedro\Desktop\ALLUB`  
 Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 
@@ -13,6 +13,7 @@ Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 - `.lucy\GSD_TASK.md`
 - `.lucy\UI_UX_BRIEF.md`
 - `.lucy\FRONTEND_EXCELLENCE.md`
+- `.lucy\MOTION_EFFECTS.md`
 - `.lucy\RESOURCE_RADAR.md`
 - `.lucy\START_HERE.md`
 
@@ -34,7 +35,7 @@ Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 14. Confirmar falha esperada.
 15. Implementar a tarefa no workspace atual.
 16. Rodar validacoes disponiveis.
-17. Rodar `lucy review --task "Planejar a aplicacao Allub Lubrificantes, mobile-first, cadastro de clientes e produtos, com orcamento zero e persistencia free tier" --write` antes de concluir.
+17. Rodar `lucy review --task "AGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA SIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK FICOU MAGNIFICO !!!! KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SÓ QUE UMA ANIMAÇÃO PAROU... a gotinha não funciona mais kkkkkkkkkkkkkkkkkkkk Pode verificar por gentileza" --write` antes de concluir.
 18. Salvar memoria se houver decisao reutilizavel.
 
 ## Gates Detectados
@@ -42,5 +43,5 @@ Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`
 - Seguranca: nao detectado automaticamente
 - UI/UX: sim
 - Frontend: sim
-- Motion: nao detectado automaticamente
+- Motion: sim
 - GitHub/Coolify/Deploy: nao detectado automaticamente

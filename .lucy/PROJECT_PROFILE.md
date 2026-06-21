@@ -2,21 +2,43 @@
 
 Workspace: `C:\Users\pedro\Desktop\ALLUB`  
 Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`  
-Gerado em: 2026-06-06 21:49
+Gerado em: 2026-06-20 22:15
 
 ## Stack Detectada
 
-- Stack nao detectada pelos marcadores principais
+- Node/JavaScript
+- NPM
+- TypeScript
+- Vite
 
 ## Arquivos Raiz
 
 DIR  .lucy
+DIR  public
+DIR  src
+FILE .env (291 bytes)
+FILE .env.example (121 bytes)
+FILE .gitignore (332 bytes)
 FILE AGENTS.md (4007 bytes)
+FILE eslint.config.js (591 bytes)
+FILE index.html (458 bytes)
 FILE logo_allub.jpeg (146587 bytes)
+FILE MANUAL.md (4689 bytes)
+FILE package-lock.json (141072 bytes)
+FILE package.json (1055 bytes)
+FILE README.md (2425 bytes)
+FILE REGRAS_ENTREGA.md (1520 bytes)
+FILE supabase_schema.sql (3141 bytes)
+FILE tsconfig.app.json (617 bytes)
+FILE tsconfig.json (119 bytes)
+FILE tsconfig.node.json (591 bytes)
+FILE vite.config.ts (302 bytes)
 
 ## Validacoes Provaveis
 
-- `Definir comando de validacao do projeto`
+- `npm run test`
+- `npm run lint`
+- `npm run build`
 
 ## Como O Agente Deve Usar
 

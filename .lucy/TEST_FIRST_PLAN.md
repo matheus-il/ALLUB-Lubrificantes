@@ -1,9 +1,9 @@
 # Lucy Test-First Gate
 
-Tarefa: Planejar a aplicacao Allub Lubrificantes, mobile-first, cadastro de clientes e produtos, com orcamento zero e persistencia free tier  
+Tarefa: AGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA SIMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK FICOU MAGNIFICO !!!! KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK SÓ QUE UMA ANIMAÇÃO PAROU... a gotinha não funciona mais kkkkkkkkkkkkkkkkkkkk Pode verificar por gentileza  
 Workspace: `C:\Users\pedro\Desktop\ALLUB`  
 Cerebro central: `C:\Users\pedro\Universo_Lucy\Lucy`  
-Gerado em: 2026-06-06 21:49  
+Gerado em: 2026-06-20 22:15  
 Status: Obrigatorio
 
 ## Regra Inegociavel
@@ -29,7 +29,9 @@ prova o comportamento esperado. Este gate vem antes da implementacao.
 
 ## Validacoes Detectadas
 
-- [ ] Definir no projeto um comando headless de teste/lint/build.
+- [ ] `npm run test`
+- [ ] `npm run lint`
+- [ ] `npm run build`
 
 ## Evidencias Para A Entrega
 
