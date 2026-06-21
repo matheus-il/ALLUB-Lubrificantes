@@ -135,8 +135,13 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ponta da Seta Superior Simétrica Proporcional */}
-          <path d="M 154,32 L 184,51 L 160,75 Z" fill="#74b22c" />
+          {/* Ponta da Seta Superior Simétrica Proporcional (Opção 1) */}
+          <path
+            id="seta-ponta-superior"
+            d="M -12,-8 L 4,0 L -12,8 Z"
+            fill="#74b22c"
+            transform="translate(168, 51) rotate(54.25)"
+          />
 
           {/* Seta Inferior (Sentido Horário) */}
           <path
@@ -146,8 +151,13 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ponta da Seta Inferior Simétrica Proporcional */}
-          <path d="M 46,168 L 16,149 L 40,125 Z" fill="#74b22c" />
+          {/* Ponta da Seta Inferior Simétrica Proporcional (Opção 1) */}
+          <path
+            id="seta-ponta-inferior"
+            d="M -12,-8 L 4,0 L -12,8 Z"
+            fill="#74b22c"
+            transform="translate(32, 149) rotate(234.25)"
+          />
         </g>
 
         {/* GRUPO DA ENGRENAGEM AZUL (Imponente: raio de aro 48) */}
