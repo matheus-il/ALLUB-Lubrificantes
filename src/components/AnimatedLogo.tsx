@@ -36,9 +36,12 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
       loop: true
     });
 
-    // Animação fluida e contínua da gota de óleo pingando (sem travadas no final)
+    // Animação fluida e contínua da gota de óleo pingando (com keyframes explícitos para fade-out de 1250ms)
     const gotaAnim = animate('#gota-oleo', {
-      translateY: [0, 48],
+      translateY: [
+        { value: 0, duration: 0 },
+        { value: 48, duration: 1400, easing: 'easeInQuad' }
+      ],
       scaleY: [
         { value: 1, duration: 0 },
         { value: 1.6, duration: 800, easing: 'easeInQuad' },
@@ -51,11 +54,10 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
       ],
       opacity: [
         { value: 0, duration: 0 },
-        { value: 1, duration: 150 },
-        { value: 0, duration: 1250, easing: 'easeInQuad' }
+        { value: 1, duration: 150, easing: 'linear' },
+        { value: 0, duration: 1250, easing: 'linear' }
       ],
       duration: 1400,
-      easing: 'easeInQuad',
       loop: true
     });
 
@@ -123,29 +125,29 @@ export const AnimatedLogo: React.FC<AnimatedLogoProps> = ({ size = 'small' }) =>
           transformOrigin: 'center'
         }}
       >
-        {/* GRUPO DAS SETAS VERDES (Perfeitamente circulares, simétricas, raio 82) */}
+        {/* GRUPO DAS SETAS VERDES (Afastadas com raio 80, escala proporcional exata do triângulo perfeito) */}
         <g id="setas-verdes" style={{ transformOrigin: '100px 100px' }}>
           {/* Seta Superior (Sentido Horário) */}
           <path
-            d="M 20.8,78.8 A 82,82 0 0,1 179.2,78.8"
+            d="M 20,100 A 80,80 0 0,1 168,51"
             stroke="#74b22c"
             strokeWidth="8"
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ponta da Seta Superior Simétrica e Alinhada */}
-          <path d="M 170,68 L 188,81 L 169,91 Z" fill="#74b22c" />
+          {/* Ponta da Seta Superior Simétrica Proporcional */}
+          <path d="M 154,32 L 184,51 L 160,75 Z" fill="#74b22c" />
 
           {/* Seta Inferior (Sentido Horário) */}
           <path
-            d="M 179.2,121.2 A 82,82 0 0,1 20.8,121.2"
+            d="M 180,100 A 80,80 0 0,1 32,149"
             stroke="#74b22c"
             strokeWidth="8"
             fill="none"
             strokeLinecap="round"
           />
-          {/* Ponta da Seta Inferior Simétrica e Alinhada */}
-          <path d="M 30,132 L 12,119 L 31,109 Z" fill="#74b22c" />
+          {/* Ponta da Seta Inferior Simétrica Proporcional */}
+          <path d="M 46,168 L 16,149 L 40,125 Z" fill="#74b22c" />
         </g>
 
         {/* GRUPO DA ENGRENAGEM AZUL (Imponente: raio de aro 48) */}
