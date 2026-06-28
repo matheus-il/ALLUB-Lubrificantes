@@ -54,5 +54,13 @@ describe('App Root Component - Navegação e Estrutura', () => {
     expect(navStyle).not.toContain('position: absolute');
     expect(navStyle).not.toContain('position:absolute');
   });
+
+  it('deve definir a propriedade customizada --vh no document.documentElement ao montar', () => {
+    vi.mocked(supabase.auth.getSession).mockResolvedValue({ data: { session: null }, error: null });
+    render(<App />);
+    const vhValue = document.documentElement.style.getPropertyValue('--vh');
+    expect(vhValue).not.toBe('');
+    expect(vhValue).toContain('px');
+  });
 });
 

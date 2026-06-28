@@ -35,6 +35,19 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const updateVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+
+    updateVh();
+    window.addEventListener('resize', updateVh);
+    return () => {
+      window.removeEventListener('resize', updateVh);
+    };
+  }, []);
+
   if (authLoading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#0f1013' }}>
