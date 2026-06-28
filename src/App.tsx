@@ -12,6 +12,18 @@ function App() {
   const [session, setSession] = useState<Session | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<'clientes' | 'produtos' | 'ajustes'>('clientes');
+  const [isBrave, setIsBrave] = useState(false);
+
+  useEffect(() => {
+    const checkBrave = async () => {
+      const nav = navigator as any;
+      if (nav && nav.brave && typeof nav.brave.isBrave === 'function') {
+        const result = await nav.brave.isBrave();
+        setIsBrave(!!result);
+      }
+    };
+    checkBrave();
+  }, []);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -116,10 +128,10 @@ function App() {
       <nav 
         className="glass" 
         style={{
-          height: 'calc(68px + env(safe-area-inset-bottom, 0px))',
-          paddingBottom: 'env(safe-area-inset-bottom, 0px)',
+          height: `calc(68px + env(safe-area-inset-bottom, 0px) + ${isBrave ? '56px' : '0px'})`,
+          paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + ${isBrave ? '56px' : '0px'})`,
           display: 'grid',
-          gridTemplateColumns: '1/3 1/3 1/3',
+          gridTemplateColumns: 'repeat(3, 1fr)',
           gridAutoFlow: 'column',
           alignItems: 'center',
           borderTop: '1px solid var(--border-color)',

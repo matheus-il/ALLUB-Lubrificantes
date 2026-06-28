@@ -95,5 +95,49 @@ describe('App Root Component - Navegação e Estrutura', () => {
       delete (window as any).visualViewport;
     }
   });
+
+  it('deve aplicar paddingBottom e altura extras de segurança quando o navegador for o Brave', async () => {
+    const originalNavigator = window.navigator;
+    const mockBrave = {
+      isBrave: vi.fn().mockResolvedValue(true)
+    };
+    
+    Object.defineProperty(window, 'navigator', {
+      writable: true,
+      configurable: true,
+      value: {
+        ...originalNavigator,
+        brave: mockBrave
+      }
+    });
+
+    const mockSession = {
+      user: { id: 'user-123', email: 'pedropauloteodoro26@gmail.com' } as any,
+      expires_at: 0,
+      expires_in: 0,
+      token_type: 'bearer' as const,
+      access_token: 'token',
+      refresh_token: 'token'
+    };
+    vi.mocked(supabase.auth.getSession).mockResolvedValue({ data: { session: mockSession }, error: null });
+
+    render(<App />);
+
+    const navElement = await screen.findByRole('navigation');
+    expect(navElement).toBeInTheDocument();
+
+    // Aguarda a alteração de estilo após a Promise do Brave resolver
+    await vi.waitFor(() => {
+      const styleAttr = navElement.getAttribute('style') || '';
+      expect(styleAttr).toContain('56px');
+    });
+
+    // Restaura o navigator
+    Object.defineProperty(window, 'navigator', {
+      writable: true,
+      configurable: true,
+      value: originalNavigator
+    });
+  });
 });
 
