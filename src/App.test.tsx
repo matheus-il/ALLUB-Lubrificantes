@@ -62,5 +62,38 @@ describe('App Root Component - Navegação e Estrutura', () => {
     expect(vhValue).not.toBe('');
     expect(vhValue).toContain('px');
   });
+
+  it('deve usar a altura de window.visualViewport se disponível ao definir --vh', () => {
+    const originalVisualViewport = window.visualViewport;
+    
+    vi.spyOn(window, 'innerHeight', 'get').mockReturnValue(800);
+    
+    Object.defineProperty(window, 'visualViewport', {
+      writable: true,
+      configurable: true,
+      value: {
+        height: 650,
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn(),
+      },
+    });
+
+    vi.mocked(supabase.auth.getSession).mockResolvedValue({ data: { session: null }, error: null });
+
+    render(<App />);
+
+    const vhValue = document.documentElement.style.getPropertyValue('--vh');
+    expect(vhValue).toBe('6.5px');
+
+    if (originalVisualViewport) {
+      Object.defineProperty(window, 'visualViewport', {
+        writable: true,
+        configurable: true,
+        value: originalVisualViewport,
+      });
+    } else {
+      delete (window as any).visualViewport;
+    }
+  });
 });
 

@@ -37,14 +37,24 @@ function App() {
 
   useEffect(() => {
     const updateVh = () => {
-      const vh = window.innerHeight * 0.01;
+      const height = window.visualViewport 
+        ? window.visualViewport.height 
+        : window.innerHeight;
+      const vh = height * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     };
 
     updateVh();
     window.addEventListener('resize', updateVh);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', updateVh);
+    }
+
     return () => {
       window.removeEventListener('resize', updateVh);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', updateVh);
+      }
     };
   }, []);
 
